@@ -7,7 +7,6 @@ because we are allowed to use list functionality, I thought it would be fun to c
 The stack class is used to define and store the stack's operators and operands.
 """
 class Stack():
-    #my change 2
     def __init__(self):
         self.items = []
     #The push method adds new elements onto the stack
