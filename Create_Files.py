@@ -6,15 +6,9 @@ This method generates 15 input files needed for the lab:
 
 from random import randint, shuffle
 
-def Create_File(filename: str, size: int, ascending: bool, random: bool):
+def Create_File(filename: str, size: int, ascending: bool, random: bool) -> None:
     with open(filename, 'w') as file:
-        if ascending:
-            for i in range(size):
-                if i == size - 1:
-                    file.write(str(i))
-                else:
-                    file.write(str(i) + '\n')
-        elif random:
+        if random:
             array = list(range(size))
             shuffle(array)
             for i in range(len(array)):
@@ -22,19 +16,24 @@ def Create_File(filename: str, size: int, ascending: bool, random: bool):
                     file.write(str(array[i]))
                 else:
                     file.write(str(array[i]) + '\n')
+        elif ascending:
+            for i in range(size):
+                if i == size - 1:
+                    file.write(str(i))
+                else:
+                    file.write(str(i) + '\n')
         else:
             for i in range(size):
-                for i in range(size):
-                    if i == size - 1:
-                        file.write(str(size - i))
-                    else:
-                        file.write(str(size - i) + '\n')
+                if i == size - 1:
+                    file.write(str(size - i))
+                else:
+                    file.write(str(size - i) + '\n')
 
 def Create_Multiple_Files():
     for size in [10000, 5000, 2000, 1000, 50]:
-        Create_File('Ascending_' + str(size) + '.txt', size, True, False)
-        Create_File('Descending_' + str(size) + '.txt', size, False, False)
-        Create_File('Random_' + str(size) + '.txt', size, True, True)
+        Create_File('FAKE-Ascending_' + str(size) + '_Character.txt', size, True, False)
+        Create_File('FAKE-Descending_' + str(size) + '_Character.txt', size, False, False)
+        Create_File('FAKE-Random_' + str(size) + '_Character.txt', size, True, True)
 
 def Confirm_No_Duplicates_In_File(filename: str):
     with open(filename, 'r') as file:
