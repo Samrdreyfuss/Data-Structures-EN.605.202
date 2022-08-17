@@ -20,9 +20,11 @@ def Iterative_Quick_Sort_Version_1(array, low_index, high_index):
         low_index = stack[stack_top]
         stack_top = stack_top - 1
 
-        #call Partition function (with respect to version #)
+        #call Partition function (with respect to quicksort version #)
         partition_value = Partition_Version_1(array, low_index, high_index)
-        #partition_value = partition_value[1]
+        swap_count = partition_value[1]
+        partition_value = partition_value[0]
+        print(swap_count)
 
         #algorithm will push left side onto stack
         if partition_value - 1 > low_index:
@@ -37,4 +39,6 @@ def Iterative_Quick_Sort_Version_1(array, low_index, high_index):
            stack[stack_top] = partition_value + 1
            stack_top = stack_top + 1
            stack[stack_top] = high_index
+
+    #print(swap_count_final_value)
 

@@ -24,7 +24,7 @@ def Partition_Version_1(array, low_index, high_index):
     array[low_index], array[high] = array[high], array[low_index]
     swap_count += 1
   # Return the position from where partition is done
-  return high
+  return high, swap_count
 
 
 

@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
 
     # Driver code
-    array = [9, 0, 8, 1, 7, 3, 6, 4,10,20,5,14,6,8,9,10,5,1,2]
+    array = [9,0,8,1,7,3,6,4,10,20,5,14,6,8,9,10,5,1,2]
     Iterative_Quick_Sort_Version_1(array, 0, len(array) - 1)
     #swap_count_final_value =
 

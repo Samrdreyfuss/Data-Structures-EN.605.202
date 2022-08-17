@@ -31,9 +31,9 @@ def Create_File(filename: str, size: int, ascending: bool, random: bool) -> None
 
 def Create_Multiple_Files():
     for size in [10000, 5000, 2000, 1000, 50]:
-        Create_File('FAKE-Ascending_' + str(size) + '_Character.txt', size, True, False)
-        Create_File('FAKE-Descending_' + str(size) + '_Character.txt', size, False, False)
-        Create_File('FAKE-Random_' + str(size) + '_Character.txt', size, True, True)
+        Create_File('Ascending_' + str(size) + '_Character.txt', size, True, False)
+        Create_File('Descending_' + str(size) + '_Character.txt', size, False, False)
+        Create_File('Random_' + str(size) + '_Character.txt', size, True, True)
 
 def Confirm_No_Duplicates_In_File(filename: str):
     with open(filename, 'r') as file:
