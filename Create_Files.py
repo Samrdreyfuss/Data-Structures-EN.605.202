@@ -30,4 +30,9 @@ def Create_File(filename: str, size: int, ascending: bool, random: bool):
                     else:
                         file.write(str(size - i) + '\n')
 
-Create_File('ascending', 50, True, True)
+def Create_Multiple_Files():
+    for size in [10000, 5000, 2000, 1000, 50]:
+        Create_File('Ascending_' + str(size) + '.txt', size, True, False)
+        Create_File('Descending_' + str(size) + '.txt', size, False, False)
+        Create_File('Random_' + str(size) + '.txt', size, True, True)
+
