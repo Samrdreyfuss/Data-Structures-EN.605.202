@@ -8,10 +8,9 @@ Sources:
 5.https://www.studytonight.com/python-programs/python-program-for-iterative-quicksort (manual stack)
 '''
 
-from Quicksort import Iterative_Quick_Sort_Version_1
 import os
 from utility_functions_file import read_the_file
-from Quicksort import Iterative_Quick_Sort_Version_1, Iterative_Quick_Sort_Version_2
+from Quicksort import Iterative_Quick_Sort_Version_1, Iterative_Quick_Sort_Version_2, Iterative_Quick_Sort_Version_3, Iterative_Quick_Sort_Version_4
 
 #Driver code
 if __name__ == '__main__':
@@ -37,13 +36,24 @@ if __name__ == '__main__':
         file_type = file_data[0]
         file_size = file_data[1]
         file_name = file_type + '_' + str(file_size) + '_' + 'Character.txt'
+        file_out = file_type + '_' + str(file_size)  + '_Output.txt'
+
 
         #For quicksort version 1:
         array = read_the_file(file_name)
+        print(file_out)
+        with open(file_out, 'a') as path:
+            # print to file
+            print('File Name: ', file_name, file=path)
+
         print('File Name: ', file_name,'...................................................')
-        function_list = [Iterative_Quick_Sort_Version_1(array, array[0], len(array) - 1), Iterative_Quick_Sort_Version_2(array, array[0], len(array) - 1)]
+        function_list = [Iterative_Quick_Sort_Version_1(array, array.index(array[0]), array.index(array[-1])),
+                         Iterative_Quick_Sort_Version_2(array, array.index(array[0]), array.index(array[-1])),
+                         Iterative_Quick_Sort_Version_3(array, array.index(array[0]), array.index(array[-1])),
+                         Iterative_Quick_Sort_Version_4(array, array.index(array[0]), array.index(array[-1]))]
         for function in function_list:
-            array = array
+            file_name = file_name
+
 
 
 
