@@ -56,6 +56,18 @@ def Iterative_Quick_Sort_Version_1(array, low_index, high_index) -> tuple:
            stack_top = stack_top + 1
            stack[stack_top] = high_index
 
+    if len(array) == 50:
+        print('Sort Function: Quicksort Version 1')
+        print('Sorted Array: ', array)
+        print('Swap Count: ', swap_count)
+        print('Comparison Count: ', comparison_count)
+        print('\n')
+    else:
+        print('Sort Function: Quicksort Version 1')
+        print('Swap Count: ', swap_count)
+        print('Comparison Count: ', comparison_count)
+        print('\n')
+
     return array, swap_count, comparison_count
 
 
@@ -103,6 +115,18 @@ def Iterative_Quick_Sort_Version_2(array, low_index, high_index) -> tuple:
            stack[stack_top] = partition_value + 1
            stack_top = stack_top + 1
            stack[stack_top] = high_index
+
+    if len(array) == 50:
+        print('Sort Function: Quicksort Version 2')
+        print('Sorted Array: ', array)
+        print('Swap Count: ', swap_count)
+        print('Comparison Count: ', comparison_count)
+        print('\n')
+    else:
+        print('Sort Function: Quicksort Version 2')
+        print('Swap Count: ', swap_count)
+        print('Comparison Count: ', comparison_count)
+        print('\n')
 
     return array,swap_count,comparison_count
 

@@ -11,6 +11,7 @@ Sources:
 from Quicksort import Iterative_Quick_Sort_Version_1
 import os
 from utility_functions_file import read_the_file
+from Quicksort import Iterative_Quick_Sort_Version_1, Iterative_Quick_Sort_Version_2
 
 #Driver code
 if __name__ == '__main__':
@@ -39,18 +40,14 @@ if __name__ == '__main__':
 
         #For quicksort version 1:
         array = read_the_file(file_name)
-        print('File Name: ', file_name)
-        array, swap_count, comparison_count = Iterative_Quick_Sort_Version_1(array, array[0], len(array) - 1)
+        print('File Name: ', file_name,'...................................................')
+        function_list = [Iterative_Quick_Sort_Version_1(array, array[0], len(array) - 1), Iterative_Quick_Sort_Version_2(array, array[0], len(array) - 1)]
+        for function in function_list:
+            array = array
 
-        if len(array) == 50:
-            print('Sorted Array: ', array)
-            print('Swap Count: ', swap_count)
-            print('Comparison Count: ', comparison_count)
-            print('\n')
-        else:
-            print('Swap Count: ', swap_count)
-            print('Comparison Count: ', comparison_count)
-            print('\n')
+
+
+
 
 
 
