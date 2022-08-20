@@ -4,44 +4,55 @@ Sources:
 1.https://www.youtube.com/watch?v=8hHWpuAPBHo
 2.https://learn.zybooks.com/zybook/JHUEN605202PythonSummer2022/chapter/7/section/16
 3.Problem Solving with Algorithms and Data Structures, Miller and Ranum
-4. CAREFUL - https://www.geeksforgeeks.org/quick-sort/
-5. CAREFUL - https://www.studytonight.com/python-programs/python-program-for-iterative-quicksort (manual stack)
+4.https://www.geeksforgeeks.org/quick-sort/
+5.https://www.studytonight.com/python-programs/python-program-for-iterative-quicksort (manual stack)
 '''
 
 from Quicksort import Iterative_Quick_Sort_Version_1
 import os
+from utility_functions_file import read_the_file
 
 #Driver code
 if __name__ == '__main__':
     print('Code Running As Expected')
 
-    #search for .txt files
-    ext = ('.txt')
+    #search for .txt files and append to list
     all_files = []
     for files in os.listdir():
-        if files.endswith(ext):
+        if files.endswith('.txt'):
             all_files.append(files)
         else:
             continue
-    #all_files = all_files.sort(reverse=True)
+    split_files = []
     for file in all_files:
-        with open(file, 'r') as file_in:
-            for line in file_in:
-                # extract new line from given file
-                line = line.strip()
+        split_file = file.split('_')
+        split_file = split_file[:-1]
+        split_file[1] = int(split_file[1])
+        split_files.append(split_file)
 
-                # if there are any blank lines within .txt file, ignore them
-                if line == '':
-                    continue
-                array = line
+    sorted_files = sorted(split_files, key=lambda x: (x[0], x[1]))
 
-                print(array)
-    # Driver code
-    #array = [9,0,8,1,7,3,6,4,10,20,5,14,6,8,9,10,5,1,2]
-                Iterative_Quick_Sort_Version_1(array, 0, len(array) - 1)
-    #swap_count_final_value =
+    for file_data in sorted_files:
+        file_type = file_data[0]
+        file_size = file_data[1]
+        file_name = file_type + '_' + str(file_size) + '_' + 'Character.txt'
 
-    #print(f'Sorted array: {array}')
+        #For quicksort version 1:
+        array = read_the_file(file_name)
+        print('File Name: ', file_name)
+        array, swap_count, comparison_count = Iterative_Quick_Sort_Version_1(array, array[0], len(array) - 1)
+
+        if len(array) == 50:
+            print('Sorted Array: ', array)
+            print('Swap Count: ', swap_count)
+            print('Comparison Count: ', comparison_count)
+            print('\n')
+        else:
+            print('Swap Count: ', swap_count)
+            print('Comparison Count: ', comparison_count)
+            print('\n')
+
+
 
 
 
