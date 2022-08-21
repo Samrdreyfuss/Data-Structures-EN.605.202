@@ -41,18 +41,28 @@ if __name__ == '__main__':
 
         #For quicksort version 1:
         array = read_the_file(file_name)
-        print(file_out)
-        with open(file_out, 'a') as path:
-            # print to file
-            print('File Name: ', file_name, file=path)
 
         print('File Name: ', file_name,'...................................................')
+
+        with open(file_out, 'a') as path:
+            print('File Name: ', file_name,'...................................................' ,file=path)
+
         function_list = [Iterative_Quick_Sort_Version_1(array, array.index(array[0]), array.index(array[-1])),
                          Iterative_Quick_Sort_Version_2(array, array.index(array[0]), array.index(array[-1])),
                          Iterative_Quick_Sort_Version_3(array, array.index(array[0]), array.index(array[-1])),
                          Iterative_Quick_Sort_Version_4(array, array.index(array[0]), array.index(array[-1]))]
+
+        version = 0
         for function in function_list:
-            file_name = file_name
+            version += 1
+            with open(file_out, 'a') as path:
+                print('Sort Function: Version', version, file=path)
+                #print to file
+                if len(array) == 50:
+                    print('Sorted Array: ', function[-3], file=path)
+                print('Swap Count: ', function[-2], file=path)
+                print('Comparison Count: ', function[-1], file=path)
+                print('\n', file=path)
 
 
 

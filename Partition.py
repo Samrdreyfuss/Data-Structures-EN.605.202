@@ -82,32 +82,45 @@ def Partition_Version_3(array, low_index, high_index):
     #Return the position from where partition is done
     return high, swap_count, comparison_count
 
+def get_median(a: int, b: int, c: int):
+    if (a - b) * (c - a) >= 0:
+        return a
+    elif (b - a) * (c - b) >= 0:
+        return b
+    else:
+        return c
 
 #Partition algorithm to calculate the median of three numbers using two comparisons
-def Partition_Version_4(array, low_index: int, high_index: int):
+def Partition_Version_4(array: list, left_index: int, right_index: int):
     swap_count = 0
     comparison_count = 0
-    median = ((high_index - 1) - low_index) // 2
-    median = median + low_index
-    left = low_index + 1
-    if (array[median] - array[high_index - 1]) * (array[low_index] - array[median]) >= 0:
-        array[median],array[low_index] = array[low_index],array[median]
-        swap_count += 1
-        comparison_count += 1
-    elif (array[high_index - 1] - array[median]) * (array[low_index] - array[high_index - 1]) >=0:
-        array[low_index],array[high_index - 1] = array[high_index - 1],array[low_index]
-        swap_count += 1
-        comparison_count += 1
-    pivot = array[low_index]
-    for right in range(low_index, high_index):
-        if pivot > array[right]:
-            array[left],array[right] = array[right],array[left]
-            swap_count += 1
-            comparison_count += 1
-            left = left + 1
-    array[low_index], array[left - 1] = array[left - 1], array[low_index]
+    middle = (right_index + left_index) // 2
+
+    pivot = get_median(array[left_index], array[right_index], array[middle])
+
+    #obtain index pivot
+    pivot_index = array.index(pivot)
+
+    array[pivot_index] = array[left_index]
+    #swap first item in arry with pivot
+    array[left_index] = pivot
     swap_count += 1
-    comparison_count += 1
-    return left - 1, swap_count, comparison_count
+
+    i = left_index + 1
+    for j in range(left_index + 1, right_index + 1):
+        comparison_count += 1
+
+        if array[j] < pivot:
+            swap_count += 1
+            array[i], array[j] = array[j], array[i]
+            i += 1
+
+    array[left_index], array[i-1] = array[i-1], array[left_index]
+    swap_count += 1
+    pivot_index = i - 1
+    return pivot_index, swap_count, comparison_count
+
+
+
 
 

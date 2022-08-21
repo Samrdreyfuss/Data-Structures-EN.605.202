@@ -11,7 +11,9 @@ def Insertion_Sort(array) -> tuple:
         position = index
         while position > 0 and array[position - 1] > current_value:
             swap_count += 1
+            #print(array)
             array[position] = array[position - 1]
+            #print(array)
             position = position - 1
         array[position] = current_value
     return array, comparison_count, swap_count
@@ -56,14 +58,16 @@ def Iterative_Quick_Sort_Version_1(array, low_index, high_index) -> tuple:
            stack_top = stack_top + 1
            stack[stack_top] = high_index
 
+    print('Starting Points......',array.index(array[0]), array.index(array[-1]))
+
     if len(array) == 50:
-        print('Sort Function: Quicksort Version 1')
+        print('Sort Function: Version 1')
         print('Sorted Array: ', array)
         print('Swap Count: ', swap_count)
         print('Comparison Count: ', comparison_count)
         print('\n')
     else:
-        print('Sort Function: Quicksort Version 1')
+        print('Sort Function: Version 1')
         print('Swap Count: ', swap_count)
         print('Comparison Count: ', comparison_count)
         print('\n')
@@ -120,13 +124,13 @@ def Iterative_Quick_Sort_Version_2(array, low_index, high_index) -> tuple:
                 stack[stack_top] = high_index
 
     if len(array) == 50:
-        print('Sort Function: Quicksort Version 2')
+        print('Sort Function: Version 2')
         print('Sorted Array: ', array)
         print('Swap Count: ', swap_count)
         print('Comparison Count: ', comparison_count)
         print('\n')
     else:
-        print('Sort Function: Quicksort Version 2')
+        print('Sort Function: Version 2')
         print('Swap Count: ', swap_count)
         print('Comparison Count: ', comparison_count)
         print('\n')
@@ -183,13 +187,13 @@ def Iterative_Quick_Sort_Version_3(array, low_index, high_index) -> tuple:
                 stack[stack_top] = high_index
 
     if len(array) == 50:
-        print('Sort Function: Quicksort Version 3')
+        print('Sort Function: Version 3')
         print('Sorted Array: ', array)
         print('Swap Count: ', swap_count)
         print('Comparison Count: ', comparison_count)
         print('\n')
     else:
-        print('Sort Function: Quicksort Version 3')
+        print('Sort Function: Version 3')
         print('Swap Count: ', swap_count)
         print('Comparison Count: ', comparison_count)
         print('\n')
@@ -237,18 +241,21 @@ def Iterative_Quick_Sort_Version_4(array, low_index, high_index) -> tuple:
            stack[stack_top] = high_index
 
     if len(array) == 50:
-        print('Sort Function: Quicksort Version 4')
+        print('Sort Function: Version 4')
         print('Sorted Array: ', array)
         print('Swap Count: ', swap_count)
         print('Comparison Count: ', comparison_count)
         print('\n')
     else:
-        print('Sort Function: Quicksort Version 4')
+        print('Sort Function: Version 4')
         print('Swap Count: ', swap_count)
         print('Comparison Count: ', comparison_count)
         print('\n')
 
     return array, swap_count, comparison_count
+
+
+
 
 
 
